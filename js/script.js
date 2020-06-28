@@ -92,6 +92,8 @@ function printQuote() {
   }
   html += '</p>';
   
+  document.getElementById('quote-box').innerHTML = html;
+
   return html;
 }
 
