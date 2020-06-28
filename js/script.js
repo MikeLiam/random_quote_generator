@@ -60,6 +60,13 @@ function getRandomNumber(upper) {
 }
 
 /***
+ * `changeBackgroundColor function change body's style background-color to a random color
+ ***/
+function changeBackgroundColor() {
+  document.querySelector('body').style = `background-color: rgb(${getRandomNumber(256)}, ${getRandomNumber(256)}, ${getRandomNumber(256)})`;
+}
+
+/***
  * `getRandomQuote` function creates a random number, and use that random number to return 
  *  a random quote object from the quotes array. 
 ***/
@@ -91,6 +98,8 @@ function printQuote() {
       html += `<span class="tag">${quote.tag}</span>`
   }
   html += '</p>';
+
+  changeBackgroundColor();
   
   document.getElementById('quote-box').innerHTML = html;
 
