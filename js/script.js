@@ -74,7 +74,26 @@ function getRandomQuote() {
  * `printQuote` function display a new quote each time the user clicks 
  *  the "Show another quote" button
 ***/
+function printQuote() {
+  let html = '';
+  let quote = getRandomQuote();
 
+  html += `<p class="quote">${quote.quote}</p>
+          <p class="source">${quote.source}`;
+
+  if (quote.citation) {
+      html += `<span class="citation">${quote.citation}</span>`
+  }
+  if (quote.year) {
+      html += `<span class="year">${quote.year}</span>`
+  }
+  if (quote.tag) {
+      html += `<span class="tag">${quote.tag}</span>`
+  }
+  html += '</p>';
+  
+  return html;
+}
 
 
 /***
