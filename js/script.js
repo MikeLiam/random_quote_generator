@@ -84,6 +84,9 @@ function getRandomQuote() {
 function printQuote() {
   let html = '';
   let quote = getRandomQuote();
+  
+  // reset interval each time click event. ** better solution if we could change eventlistener **
+  setTimer();
 
   html += `<p class="quote">${quote.quote}</p>
           <p class="source">${quote.source}`;
@@ -100,12 +103,22 @@ function printQuote() {
   html += '</p>';
 
   changeBackgroundColor();
-  
+
   document.getElementById('quote-box').innerHTML = html;
 
   return html;
 }
 
+/***
+ * setTimer function reset and restart interval to print new random quote
+ * 
+***/
+function setTimer () {
+  clearInterval(timer);
+  timer = setInterval(printQuote,10000);
+}
+// Interval initialization
+let timer = setInterval(printQuote,10000);
 
 /***
  * click event listener for the print quote button
