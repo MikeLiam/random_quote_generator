@@ -50,7 +50,7 @@ const quotes = [{
 ];
 
 /***
- * `getRandomNumber` function give a random number between 0 to upper, not included
+ * Give a random number between 0 to upper, not included
  * @param {number} upper - The max value for random number not included.
  * @returns {number} Random number at interval [0,upper)
 ***/
@@ -59,15 +59,16 @@ function getRandomNumber(upper) {
 }
 
 /***
- * `changeBackgroundColor function change body's style background-color to a random color
+ * Change body's style background-color to a rgb() random color
  ***/
 function changeBackgroundColor() {
   document.querySelector('body').style = `background-color: rgb(${getRandomNumber(256)}, ${getRandomNumber(256)}, ${getRandomNumber(256)})`;
 }
 
 /***
- * `getRandomQuote` function creates a random number, and use that random number to return 
- *  a random quote object from the quotes array. 
+ * Call getRandomNumber to get a random number at interval [0, <quotes array length>), 
+ * and use that random number to:
+ * get a random quote object from the quotes array. 
  * @returns {object} Random object quote.
 ***/
 function getRandomQuote() {
@@ -78,8 +79,8 @@ function getRandomQuote() {
 
 
 /***
- * `printQuote` function display a new quote each time the user clicks 
- *  the "Show another quote" button
+ * Display a new quote each time the user clicks 
+ *  the "Show another quote" button or a given interval demands it.
  * @returns {string} String with html code.
  ***/
 function printQuote() {
@@ -111,7 +112,7 @@ function printQuote() {
 }
 
 /***
- * setTimer function reset and restart interval to print new random quote
+ * Reset and restart interval to call printQuote for print a new random quote
  * 
 ***/
 function setTimer () {
