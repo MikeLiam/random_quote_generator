@@ -81,7 +81,6 @@ function getRandomQuote() {
 /***
  * Display a new quote each time the user clicks 
  *  the "Show another quote" button or a given interval demands it.
- * @returns {string} String with html code.
  ***/
 function printQuote() {
   let html = '';
@@ -107,8 +106,6 @@ function printQuote() {
   changeBackgroundColor();
 
   document.getElementById('quote-box').innerHTML = html;
-
-  return html;
 }
 
 /***
