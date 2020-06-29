@@ -9,12 +9,9 @@ project 1 - A Random Quote Generator
 
 /*** 
  * `quotes` array 
+ * All quotes took from 
+ * 1994-2018 QuotationsPage.com and Michael Moncur.
 ***/
-
-/*
-    All quotes took from 
-    1994-2018 QuotationsPage.com and Michael Moncur.
-*/
 const quotes = [{
   quote: 'To want to be what one can be is purpose in life',
   source: 'Cynthia Ozick',
@@ -53,8 +50,10 @@ const quotes = [{
 ];
 
 /***
- * `getRandomNumber` function give a random number between 0 to upper, not includes
- ***/
+ * `getRandomNumber` function give a random number between 0 to upper, not included
+ * @param {number} upper - The max value for random number not included.
+ * @returns {number} Random number at interval [0,upper)
+***/
 function getRandomNumber(upper) {
   return Math.floor(Math.random() * upper);
 }
@@ -69,6 +68,7 @@ function changeBackgroundColor() {
 /***
  * `getRandomQuote` function creates a random number, and use that random number to return 
  *  a random quote object from the quotes array. 
+ * @returns {object} Random object quote.
 ***/
 function getRandomQuote() {
   let upper = quotes.length;
@@ -80,13 +80,14 @@ function getRandomQuote() {
 /***
  * `printQuote` function display a new quote each time the user clicks 
  *  the "Show another quote" button
-***/
+ * @returns {string} String with html code.
+ ***/
 function printQuote() {
   let html = '';
   let quote = getRandomQuote();
   
-  // reset interval each time click event. ** better solution if we could change eventlistener **
-  setTimer();
+  // for reset interval each time click event. 
+  setTimer();  // ** better solution if we could change eventlistener, with an arrow function
 
   html += `<p class="quote">${quote.quote}</p>
           <p class="source">${quote.source}`;
